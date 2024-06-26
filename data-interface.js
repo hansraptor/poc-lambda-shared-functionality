@@ -34,8 +34,21 @@ const createUser = async (user) => {
     return Promise.resolve(user);
 }
 
+const updateUser = async (id, user) => {
+    const targetUser = usersRepo.users.find(u => u.id === id);
+
+    if (!targetUser) {
+        return;
+    }
+
+    Object.assign(targetUser, user);
+
+    return Promise.resolve(targetUser);
+};
+
 module.exports = {
     listUsers: listUsers,
     fetchUser: fetchUser,
-    createUser: createUser
+    createUser: createUser,
+    updateUser: updateUser
 }
