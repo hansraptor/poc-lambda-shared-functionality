@@ -48,3 +48,23 @@ describe(`createUser`, () => {
         expect(postCreateUsersList.length).toEqual(preCreateUsersList.length + 1);
     });
 });
+
+describe(`createUser`, () => {
+    it(`result should have original fields including new id field`, async () => {
+        const userId = "872b923c-5eb3-4ef6-b2bb-58fbb5b20c68";
+        const user = {
+            email: "pot.piempies@gmail.com",
+            phone: "+00 00 000 0006"
+        };
+        const originalUser = await dataInterface.fetchUser(userId);
+        const updatedUser = await dataInterface.updateUser(userId, user);
+
+        expect(updatedUser).not.toBeNull();
+        expect(updatedUser.id).not.toBeNull();
+        expect(updatedUser.id).toEqual(expect.any(String));
+        expect(updatedUser.firstName).toEqual(originalUser.firstName);
+        expect(updatedUser.lastName).toEqual(originalUser.lastName);
+        expect(updatedUser.email).toEqual(user.email);
+        expect(updatedUser.phone).toEqual(user.phone);
+    });
+});
