@@ -1,0 +1,15 @@
+{
+  "name": "poc-lambda-shared-functionality",
+  "version": "1.0.0",
+  "description": "Proof of concept repo for functionality shared between different lambda function projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.11",
+    "uuid4": "^2.0.3"
+  }
+}
